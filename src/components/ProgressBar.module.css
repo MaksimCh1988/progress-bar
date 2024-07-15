@@ -1,0 +1,87 @@
+.container {
+  max-width: 923px;
+  height: 102px;
+  /* border: 1px rgba(0, 0, 0, 0.37) dotted; */
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.main-scale {
+  border-radius: 30px;
+  width: 900px;
+  height: 40px;
+  background: rgba(239, 239, 239, 0.6);
+  display: flex;
+  position: relative;
+
+}
+
+.progress-section {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  width: 16.6%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.progress-section::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 0%;
+  transform: translate(50%, 0%);
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  background-image: url('/public/star.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.progress-section-full::after{
+  background-image: url('/public/starFilled.svg');
+}
+
+.progress-section-fill {
+  background-color: #3300FF;
+  width: 100%;
+  height: 100%; 
+  border-radius: 30px 0 0 30px;
+  position: absolute;
+  z-index: 1;
+  transition: 2s; 
+}
+
+.progress-section:last-child::after {
+  transform: translate(40%, 0%);
+  background-image: url('/public/finish.png');
+}
+
+.progress-section:last-child.progress-section-full-last::after {
+  background-image: url('/public/finishFilled.png');
+}
+
+.progress-section:last-child {
+  border-right: none;
+}
+
+.label-scale {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 0%;
+  transform: translate(50%, 50%);
+  top: 100%;
+}
+
+.first-label-scale {
+  right: 100%;
+  transform: translate(150%, 50%);
+}
+
+.last-label-scale {
+  transform: translate(0%, 50%);
+}
